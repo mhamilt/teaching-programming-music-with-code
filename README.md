@@ -14,7 +14,7 @@ For the initial 'pitch', please edit `pitch.tex`.
 
 The central chapter text lives in `chapter.tex`, this in aid of taking out latex setup out of the eyeline.
 
-Please add any pertinentkayw@cardiff.ac.uk references to the `main.bib` file.
+Please add any pertinent references to the `main.bib` file.
 
 Any questions about Overlead / LaTeX please get in touch with Matthew to organise a call.
 
