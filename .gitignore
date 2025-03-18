@@ -5,4 +5,16 @@
 *.aux
 *.log
 *.pdf
-
+*.aux
+*.bcf
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fff
+*.fls
+*.lof
+*.log
+*.out
+*.gz
+*.zip
+*.run.xml
