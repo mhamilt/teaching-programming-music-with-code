@@ -2,6 +2,9 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{wasysym}
 
+\usepackage[sorting=none]{biblatex} %Imports biblatex package
+\addbibresource{main.bib} %Import the bibliography file
+
 \title{\twonotes{} Programming and motivation: Making Music with Code \twonotes{}}
 \author{}
 \date{}
@@ -16,5 +19,11 @@
 
 \include{chapter}
 
-\bibliography{main}
+%%%%% older bibtex code:
+% \bibliographystyle{plain}
+% \bibliography{main}
+
+%%%%% newer biblatex code:
+\printbibliography %Prints bibliography
+
 \end{document}
