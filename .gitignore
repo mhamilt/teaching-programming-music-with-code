@@ -19,3 +19,4 @@
 *.zip
 *.run.xml
 *.wav
+/notebooks/.ipynb_checkpoints
