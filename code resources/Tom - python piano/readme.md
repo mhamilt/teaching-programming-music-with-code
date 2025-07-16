@@ -1,5 +1,5 @@
 # Creating a piano piece with python notebooks
-/Users/tmudd/Dropbox/Edinburgh Shared/Research/Pair Programming Book Chapter/Python notebook example/overview.md
+
 ## Summary
 Learn to create simple MIDI piano music through a Python notebook format.
 
@@ -18,4 +18,4 @@ Introduces:
 
 ## Technical Resources or Requirements
  - Python notebooks
- - (music21 library)[https://pypi.org/project/music21/]
+ - [music21 library](https://pypi.org/project/music21/)
