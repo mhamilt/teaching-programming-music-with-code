@@ -1,0 +1,165 @@
+<html>
+<!-- <link rel="stylesheet" type="text/css" href="basic.css" /> --> 
+<script src="https://unpkg.com/@strudel/repl@latest"></script>
+<style>
+#content
+{
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 14pt;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+.code
+{
+  font-family: Courier New;
+  background: #eaeaea;
+}
+
+
+</style>
+<body>
+<div id='content'> 
+
+
+
+
+<h1>Exploring drum patterns in Strudel</h1>
+<p>
+Each of the Strudel boxes below can be played with the play icon in the top right.
+Try them out and explore your own changes to the code, updating things by restarting the playback, or pressing "ctrl-enter".
+</p>
+
+<p>
+  Some additional resources you may find useful for learning and exploring Strudel:
+  <ol>
+    <li><a href="https://strudel.cc/workshop/getting-started" target="_blank">Studel getting started guide</a></li>
+    <li>Lucy Cheeseman (aka <a href="https://www.youtube.com/watch?v=QRJ0xrjLj6A" target="_blank" >Heavy Lifting</a>) - <a href="https://www.youtube.com/watch?v=QRJ0xrjLj6A" target="_blank">Introductory video tutorial on Strudel</a></li>
+    <li>Dan Gorelick and Viola He - <a href="https://www.youtube.com/watch?v=oqyAJ4WeKoU&t=559s" target="_blank">Recorded workshop on Strudel</a></li>
+  </ol>
+</p>
+
+<h2>1 Getting started</h2>
+<p>
+Lets start with just playing back one sound. The code below plays a bass drum sample once every second. The "*2" here is to do with the frequency of the beat. Try changing this to 3, 4, 100, 1.5 or any other number and restarting the audio.
+</p>
+<script src="https://unpkg.com/@strudel/embed@latest"></script>
+<strudel-repl>
+  <!--
+// 1. A simple bass drum
+sound("bd*2")
+-->
+</strudel-repl>
+
+<h2>2 Simple sequences</h2>
+<p>
+  You can play a longer sequence as shown below. By default the pattern will be scaled to play over two seconds, so the more beats you add in, the fast things move.
+</p>
+<script src="https://unpkg.com/@strudel/embed@latest"></script>
+<strudel-repl>
+  <!--
+// 2. A simple drum sequence
+sound("bd hh sd hh")
+-->
+</strudel-repl>
+
+<p>
+Try changing the sequence. There are a variety of default drum sounds that you can use for this:
+<ul>
+  <li>bd = bass drum</li>
+  <li>sd = snare drum</li>
+  <li>rim = rim shot</li>
+  <li>cp = clap</li>
+  <li>hh = closed hi-hat</li>
+  <li>oh = open hi-hat</li>
+  <li>cr = crash</li>
+  <li>rd = ride</li>
+  <li>ht = high tom</li>
+  <li>mt = mid tom</li>
+  <li>lt = low tom</li>
+  <li>- = [rest]</li>
+</ul>
+
+You can read more about these drum sounds in the <a href="https://strudel.cc/learn/samples/">Strudel documentation</a>
+</p>
+
+
+
+
+
+
+
+<h2>3 Expanding sequences</h2>
+<p>
+We can be a little more advernturous with our patterns. Below are a range of techniques for that.
+</p>
+<p>
+We will use this slightly smaller editor from here on<br>
+<strong>To run these examples</strong>, make sure your mouse cursor is in the code block, then use your keyboard:
+<ul>
+  <li><span class="code">ctrl-enter</span> = start or restart with your updated code</li>
+  <li><span class="code">ctrl-.</span> = stop the audio (full stop key)</li>
+</ul>
+</p>
+
+
+<h3>3.1 Repeats with <span class="code">*X</span></h3>
+<p>
+  You can repeat a particular sound or event by "multiplying it".
+</p>
+<strudel-editor code='// 3.1 repeating beats with *2 or *3 or any number
+s("bd - sd*2 - bd hh*4 sd cp")'>
+</strudel-editor>
+
+
+<h3>3.2 Expanding particular beats with <span class="code">[ ... ]</span></h3>
+<p>
+  Placing events inside the square brackets groups them together as a single beat. This can mean that the beats play faster, e.g. squeezing 2, 3 or more beats into the time of a single beat.
+</p>
+
+<strudel-editor code='// 3.2 expanding beats with []
+ s("bd bd [hh sd] [- hh] bd [hh hh hh] sd [cp cp]")'>
+</strudel-editor>
+
+
+<h3>3.3 Alternating particular beats with <span class="code">< ... ></span></h3>
+<p>
+  If you use the angular brackets <span class="code">< ... ></span> instead, rather than changing the timing, the pattern will alternate between the different elements each time that the sequence repeats</span>
+</p>
+<strudel-editor code='// 3.3 alternating beats with <>
+s("bd bd <hh sd> <- hh> bd [hh hh hh] sd <cp bd>")'>
+</strudel-editor>
+
+
+<h3>3.4 Changing the rate of things by wrapping everything in <span class="code"><></span> brackets</h3>
+<p>
+  Currently everything is squeezed into a 2 second loop. We can have a little more control over this by wrapping everything in the <span class="code"><></span> brackets, and then using the <span class="code">*X</span> as shown above to increase or decrease the speed. Try changing the <span class="code">*8</span> in the example below.
+</p>
+
+<strudel-editor code='// 3.4 speeding things up or slowing them down
+s("<bd hh sd hh> *8")'>
+</strudel-editor>
+
+
+
+<h3>3.5 Reusing the same techniques for the speed</h3>
+<p>
+  One of the lovely things about strudel is that any of the pattern making processes you learn in one place can usually be applied in other places. For instance, we can make the speed change alternate using the <span class="code"><></span> the same way we did above for individual beats.
+</p>
+
+<strudel-editor code='// 3.5 apply our pattern techniques to the speed
+s("<bd - - hh> * <8 16>")'>
+</strudel-editor>
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
