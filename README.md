@@ -20,14 +20,8 @@ Any questions about Overlead / LaTeX please get in touch with Matthew to organis
 
 # Important Dates
 
-## April 1st 2025: Pitch Submission Deadline
-
-From https://pairprogramming.ed.ac.uk/book-call-for-pitches/
-
-Pitch should include:
-
-- a working title,  
-- a list of team members/co-authors for your chapter, 
-- a brief description of the roles of each team member, to give an idea of what perspective you will be writing from, 
-- Your Pitch! Up to 300 words outlining your proposed contribution, 
-- Your suggestion(s) for the format (e.g. case study, multimedia resources, etc.).  
+## ~~April 1 2025: Pitch Submission Deadline~~
+## August 1 2025: Coding resources completed (at least at draft stage)
+## August 15 2025: Chapter draft completed
+## August 22 2025: Final revisions to chapter draft
+## August 29 2025: Final revisions to coding resources
