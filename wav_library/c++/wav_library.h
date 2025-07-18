@@ -17,6 +17,7 @@
 #include <string>
 #include <cstddef>
 #include <cstdlib>
+#include <cassert>
 #if defined _WIN32 || defined _WIN64
 #pragma comment(lib, "Winmm")
 #include <windows.h>
@@ -165,10 +166,13 @@ void printHeaderFromFile(std::string filepath)
 /// @param audio audio samples, assumed to be 44100 Hz sampling rate
 /// @param numberOfSamples total number of samples in audio
 /// @param filename filename, should end in .wav and will be written to your Desktop
+/// @param toDesktop set wether output goes to the desktop
+/// @param path output file path
+/// @param shouldPlay attempt to play audio through basic command line programme. 
 void writeToWav(float* audio,
                 uint32_t numberOfSamples,
                 const char* filename,
-                const bool toDesktop = true,
+                const bool toDesktop = false,
                 const char* path = "",
                 const bool shouldPlay = false)
 {
