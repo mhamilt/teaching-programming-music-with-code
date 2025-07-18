@@ -1,9 +1,8 @@
 use std::fs::File;
 use std::io::{self, Read, Write, BufReader, BufWriter};
 use std::path::Path;
-use std::f32::consts::PI;
 
-fn write_wav_file(
+pub fn write_wav_file(
     float_data: &[f32],
     filename: &str,
     nchannels: u16,
@@ -56,7 +55,7 @@ fn write_wav_file(
     Ok(())
 }
 
-fn read_wav_file(filename: &str) -> io::Result<Vec<f32>> {
+pub fn read_wav_file(filename: &str) -> io::Result<Vec<f32>> {
     let path = if filename.ends_with(".wav") {
         filename.to_string()
     } else {
@@ -71,8 +70,8 @@ fn read_wav_file(filename: &str) -> io::Result<Vec<f32>> {
         return Err(io::Error::new(io::ErrorKind::InvalidData, "Invalid WAV header"));
     }
 
-    let nchannels = u16::from_le_bytes([header[22], header[23]]);
-    let sample_rate = u32::from_le_bytes([header[24], header[25], header[26], header[27]]);
+    // let nchannels = u16::from_le_bytes([header[22], header[23]]);
+    // let sample_rate = u32::from_le_bytes([header[24], header[25], header[26], header[27]]);
     let bits_per_sample = u16::from_le_bytes([header[34], header[35]]);
     let data_chunk_size = u32::from_le_bytes([header[40], header[41], header[42], header[43]]);
     let num_samples = data_chunk_size as usize / (bits_per_sample as usize / 8);
@@ -93,22 +92,3 @@ fn read_wav_file(filename: &str) -> io::Result<Vec<f32>> {
     Ok(float_data)
 }
 
-fn generate_sine_wave(freq: f32, duration_secs: f32, sample_rate: u32) -> Vec<f32> {
-    let samples = (sample_rate as f32 * duration_secs) as usize;
-    (0..samples)
-        .map(|i| {
-            let t = i as f32 / sample_rate as f32;
-            (2.0 * PI * freq * t).sin()
-        })
-        .collect()
-}
-
-fn main() -> io::Result<()> {
-    let sample_rate = 44100;
-    let data = generate_sine_wave(440.0, 1.0, sample_rate);
-    write_wav_file(&data, "pure_rust_output", 1, 16, sample_rate)?;
-
-    let loaded = read_wav_file("pure_rust_output.wav")?;
-    println!("Loaded {} samples.", loaded.len());
-    Ok(())
-}
