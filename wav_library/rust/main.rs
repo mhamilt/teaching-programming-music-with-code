@@ -1,3 +1,9 @@
+// wav_library example
+//
+// Build and run in terminal with:
+//
+// rustc main.rs && ./main
+
 mod wav_library;
 use std::f32::consts::PI;
 use std::io;
