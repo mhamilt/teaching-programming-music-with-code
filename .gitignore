@@ -21,3 +21,4 @@
 *.wav
 /notebooks/.ipynb_checkpoints
 /notebooks/__pycache__
+__pycache__/
