@@ -36,13 +36,13 @@ pub fn write_wav_file(
 
     // fmt subchunk
     writer.write_all(b"fmt ")?;
-    writer.write_all(&16u32.to_le_bytes())?; // Subchunk1Size for PCM
-    writer.write_all(&1u16.to_le_bytes())?;  // AudioFormat PCM = 1
-    writer.write_all(&nchannels.to_le_bytes())?;
+    writer.write_all(      &16u32.to_le_bytes())?; // Subchunk1Size for PCM
+    writer.write_all(       &1u16.to_le_bytes())?; // AudioFormat PCM = 1
+    writer.write_all(  &nchannels.to_le_bytes())?;
     writer.write_all(&sample_rate.to_le_bytes())?;
-    writer.write_all(&byte_rate.to_le_bytes())?;
+    writer.write_all(  &byte_rate.to_le_bytes())?;
     writer.write_all(&block_align.to_le_bytes())?;
-    writer.write_all(&bit_depth.to_le_bytes())?;
+    writer.write_all(  &bit_depth.to_le_bytes())?;
 
     // data subchunk
     writer.write_all(b"data")?;
@@ -70,8 +70,6 @@ pub fn read_wav_file(filename: &str) -> io::Result<Vec<f32>> {
         return Err(io::Error::new(io::ErrorKind::InvalidData, "Invalid WAV header"));
     }
 
-    // let nchannels = u16::from_le_bytes([header[22], header[23]]);
-    // let sample_rate = u32::from_le_bytes([header[24], header[25], header[26], header[27]]);
     let bits_per_sample = u16::from_le_bytes([header[34], header[35]]);
     let data_chunk_size = u32::from_le_bytes([header[40], header[41], header[42], header[43]]);
     let num_samples = data_chunk_size as usize / (bits_per_sample as usize / 8);
