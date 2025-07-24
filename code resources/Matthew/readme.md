@@ -16,7 +16,7 @@ A python lesson on audio and [list comprehensions](https://docs.python.org/3/tut
 
 The WAVE is one of the simplest media files you can create and is so widely supported, it makes the perfect output for cross-platform compatible programming courses.  Most modern operating systems will provide some means of playback for a WAVE file.
 
-From a student perspective WAVE file is also complex enough to be interesting, but simple enough to be digestable. This is one of the reasons that programming a WAVE file write has been the [goto assignment for 101 computer science courses](https://ccrma.stanford.edu/courses/422-winter-2014/projects/WaveFormat/) for decades.
+From a student perspective WAVE file is also complex enough to be interesting, but simple enough to be digestable. This is one of the reasons that programming a WAVE file write has been the [goto assignment](https://www.cs.utahtech.edu/cs/3005/assignments.wav_wizard/assignment_07_wav_file_part1/) for [101 computer](https://www.danielzingaro.com/sound_proc2/assignment.html) science [courses](https://ccrma.stanford.edu/courses/422-winter-2014/projects/WaveFormat/) [for decades](https://cs50.harvard.edu/x/2023/labs/4/volume/).
 
 Not only does the WAVE file allow for easy data sonification, but it helps to teach general computer science memory concepts like endianess, data type, file streams, file headers and standards, and memory management.
 
