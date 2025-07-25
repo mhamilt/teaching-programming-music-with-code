@@ -89,12 +89,12 @@ struct WaveHeader
 /// @param toDesktop set wether output goes to the desktop
 /// @param path output file path
 /// @param shouldPlay attempt to play audio through basic command line programme. 
-void writeToWav(float* audio,
-                uint32_t numberOfSamples,
-                const char* filename,
-                const bool toDesktop = false,
-                const char* path = "",
-                const bool shouldPlay = false)
+void writeWavFile(float* audio,
+                  uint32_t numberOfSamples,
+                  const char* filename,
+                  const bool toDesktop = false,
+                  const char* path = "",
+                  const bool shouldPlay = false)
 {
     std::ofstream fs;
     
@@ -162,7 +162,7 @@ void writeToWav(float* audio,
 ///
 ///  @returns Float pointer to mono  audio sample data.
 ///           This pointer is dynamically allocated and it is up to the user to delete it
-float* loadWav(uint32_t &numberOfFrames, std::string filepath)
+float* readWavFile(uint32_t &numberOfFrames, std::string filepath)
 {
     std::ifstream wavFile {filepath, std::fstream::in | std::ios::binary};
     
@@ -174,28 +174,14 @@ float* loadWav(uint32_t &numberOfFrames, std::string filepath)
     assert (wavFile.good());
     
     WaveHeader wavHeader;
-    wavFile.read((char*)&wavHeader, sizeof(WaveHeader));
-    wavHeader.assertWavFile();
+    wavFile.read((char*)&wavHeader, sizeof(WaveHeader));    
     numberOfFrames  = wavHeader.getNumFrames();
     
     char * bytes = nullptr;
     
     uint32_t byteDepth = wavHeader.bitsPerSample / 8;
     
-    switch (byteDepth)
-    {
-        case 1:
-        case 2:
-            bytes = new char[byteDepth];
-            break;
-        case 3:
-        case 4:
-            bytes = new char[4];
-            break;
-        default:
-            assert(false); // Bit depth is not a value that is dealt with.
-            break;
-    }
+    bytes = new char[byteDepth];
     
     std::fill(bytes, bytes + byteDepth, 0);
     
@@ -206,24 +192,8 @@ float* loadWav(uint32_t &numberOfFrames, std::string filepath)
         audio[i] = 0.0f;
         for (uint16_t channel = 0; channel < wavHeader.numChannels; channel++)
         {
-            wavFile.read(bytes, byteDepth);
-                        
-            switch (byteDepth)
-            {
-                case 1:
-                    audio[i] += (float(*((uint8_t*)(bytes))) - 127.0f) / 127.0f;
-                    break;
-                case 2:
-                    audio[i] += float(*((int16_t*)(bytes))) / 32768.0f;
-                    break;
-                case 3:
-                    for (uint8_t j = 3; j > 0; j--)
-                        bytes[j] = bytes[j-1];
-                    bytes[0] = 0;
-                case 4:
-                    audio[i] += float(*((int32_t*)(bytes))) / 2147483648.0f;
-                    break;
-            }
+            wavFile.read(bytes, byteDepth);                        
+            audio[i] += float(*((int16_t*)(bytes))) / 32768.0f;            
         }
     }
     

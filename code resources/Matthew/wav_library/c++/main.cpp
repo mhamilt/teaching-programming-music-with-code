@@ -23,7 +23,12 @@ int main(int argc, const char * argv[])
         sineWave[i] = std::sin (radsPerSamp * (float) i) * 0.707f;
     }
     
-    writeToWav(sineWave, numSamples, "a440.wav");
+    writeWavFile(sineWave, numSamples, "a440.wav");
     
+    uint32_t numberOfFrames;
+    float* readAudio = readWavFile(numberOfFrames, "a440.wav");
+    
+    writeWavFile(readAudio, numberOfFrames, "a440_read_test.wav");
+
     return 0;
 }
