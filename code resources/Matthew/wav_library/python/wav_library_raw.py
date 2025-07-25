@@ -28,10 +28,10 @@ def write_wav_file(audio, filename):
 
     with open(filename, 'wb') as wav_file:
         # Write WAV header
-        wav_file.write(b'RIFF')
+        wav_file.write(struct.pack('4s',b'RIFF'))
         wav_file.write(struct.pack('<I', chunk_size))
-        wav_file.write(b'WAVE')
-        wav_file.write(b'fmt ')
+        wav_file.write(struct.pack('4s',b'WAVE'))
+        wav_file.write(struct.pack('4s',b'fmt '))
         wav_file.write(struct.pack('<I', 16,))
         wav_file.write(struct.pack('<H', 1,))
         wav_file.write(struct.pack('<H', num_channels,))
@@ -39,7 +39,7 @@ def write_wav_file(audio, filename):
         wav_file.write(struct.pack('<I', byte_rate,))
         wav_file.write(struct.pack('<H', block_align,))
         wav_file.write(struct.pack('<H', bits_per_sample))
-        wav_file.write(b'data')
+        wav_file.write(struct.pack('4s', b'data'))
         wav_file.write(struct.pack('<I', subchunk2_size))
 
         # Write PCM data
@@ -52,19 +52,19 @@ def write_wav_file(audio, filename):
 
 def read_wav_file(filename):
     with open(filename, 'rb') as f:                
-        (chunk_id,)        = struct.unpack('<4s', f.read(4))
-        (chunk_size,)      = struct.unpack('<I' , f.read(4))
-        (format,)          = struct.unpack('<4s', f.read(4))
-        (subchunk1_id,)    = struct.unpack('<4s', f.read(4))
-        (subchunk1_size,)  = struct.unpack('<I' , f.read(4))
-        (audio_format,)    = struct.unpack('<H' , f.read(2))
-        (num_channels,)    = struct.unpack('<H' , f.read(2))
-        (sample_rate,)     = struct.unpack('<I' , f.read(4))
-        (byte_rate,)       = struct.unpack('<I' , f.read(4))
-        (block_align,)     = struct.unpack('<H' , f.read(2))
-        (bits_per_sample,) = struct.unpack('<H' , f.read(2))
-        (subchunk2_id,)    = struct.unpack('<4s', f.read(4))
-        (subchunk2_size,)  = struct.unpack('<I' , f.read(4))
+        (chunk_id,)        = struct.unpack('4s', f.read(4))
+        (chunk_size,)      = struct.unpack('<I', f.read(4))
+        (format,)          = struct.unpack('4s', f.read(4))
+        (subchunk1_id,)    = struct.unpack('4s', f.read(4))
+        (subchunk1_size,)  = struct.unpack('<I', f.read(4))
+        (audio_format,)    = struct.unpack('<H', f.read(2))
+        (num_channels,)    = struct.unpack('<H', f.read(2))
+        (sample_rate,)     = struct.unpack('<I', f.read(4))
+        (byte_rate,)       = struct.unpack('<I', f.read(4))
+        (block_align,)     = struct.unpack('<H', f.read(2))
+        (bits_per_sample,) = struct.unpack('<H', f.read(2))
+        (subchunk2_id,)    = struct.unpack('4s', f.read(4))
+        (subchunk2_size,)  = struct.unpack('<I', f.read(4))
             
         number_of_frames = subchunk2_size // (bits_per_sample // 8)
 
