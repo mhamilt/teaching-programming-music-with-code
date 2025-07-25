@@ -4,7 +4,7 @@
 # python main.py
 
 from math import sin, pi
-from wav_library import *
+from wav_library_raw import *
 
 
 if __name__ == "__main__":
@@ -16,4 +16,6 @@ if __name__ == "__main__":
 
     sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
     
-    write_wav_file(sine_wave, "a440")
+    write_wav_file(sine_wave, "a440")    
+    audio = read_wav_file("a440.wav")
+    write_wav_file(audio, "a440_read_test")
