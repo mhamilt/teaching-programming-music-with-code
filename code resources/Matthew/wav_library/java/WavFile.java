@@ -1,3 +1,13 @@
+//
+//  wav_library.h
+//
+//  A simple Java class to start experimenting with audio output in C++
+//
+//  Current Functionality:
+//    - Sample rate fixed at 44100
+//    - bit depth fixed at 16-bit
+//    - Channel config fixed to mono
+
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

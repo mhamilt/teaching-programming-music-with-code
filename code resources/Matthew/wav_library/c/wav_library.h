@@ -1,9 +1,15 @@
 //
 //  wav_library.h
-//  C-Playground
 //
-//  Created by admin on 25/07/25.
+//  A single header #include to start experimenting with audio output in C++
 //
+//  Current Functionality:
+//    - Sample rate fixed at 44100
+//    - bit depth fixed at 16-bit
+//    - Channel config fixed to mono
+// 
+//  indlude with
+//  #include "wav_library.h"
 
 #ifndef wav_library_h
 #define wav_library_h

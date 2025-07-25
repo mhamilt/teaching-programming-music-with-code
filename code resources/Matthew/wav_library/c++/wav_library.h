@@ -1,13 +1,15 @@
-/*
- wav_library.h
- A single header #include to start experimenting with audio output in C++
- 
- Current Functionality
- 
- - Sample rate fixed at 44100
- - bit depth fixed at 16-bit
- - Channel config fixed to mono
- */
+//
+// wav_library.h
+// A single header #include to start experimenting with audio output in C++
+// 
+// Current Functionality
+// 
+// - Sample rate fixed at 44100
+// - bit depth fixed at 16-bit
+// - Channel config fixed to mono
+// 
+//  indlude with
+//  #include "wav_library.h"
 
 #pragma once
 
