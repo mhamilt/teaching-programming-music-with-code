@@ -3,12 +3,12 @@
 // Build and run in terminal with:
 //
 // gcc -o main main.c && ./main
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include "wav_library.h"
-
 
 int main(int argc, const char * argv[]) 
 {    
