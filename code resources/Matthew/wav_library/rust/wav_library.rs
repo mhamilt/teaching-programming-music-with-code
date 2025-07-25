@@ -1,3 +1,18 @@
+//
+//  wav_library.rs
+//
+//  A single header #include to start experimenting with audio output in C++
+//
+//  Current Functionality:
+//    - Sample rate fixed at 44100
+//    - bit depth fixed at 16-bit
+//    - Channel config fixed to mono
+//
+//  import with
+//  
+//  mod wav_library;
+
+
 use std::fs::File;
 use std::io::{self, Read, Write, BufReader, BufWriter};
 use std::path::Path;
