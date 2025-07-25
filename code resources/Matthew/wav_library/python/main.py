@@ -1,4 +1,4 @@
-# wav_library example
+# wav_library python example
 # 
 # run in terminal with:
 # python main.py

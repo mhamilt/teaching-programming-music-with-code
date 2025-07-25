@@ -1,4 +1,4 @@
-// wav_library example
+// wav_library Java example
 //
 // Build and run in terminal with:
 //

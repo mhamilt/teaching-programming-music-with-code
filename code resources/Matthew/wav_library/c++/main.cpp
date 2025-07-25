@@ -1,4 +1,4 @@
-// wav_library example
+// wav_library C++ example
 //
 // Build and run in terminal with:
 //
