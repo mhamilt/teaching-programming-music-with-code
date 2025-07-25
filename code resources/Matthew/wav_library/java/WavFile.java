@@ -7,6 +7,7 @@ import java.util.List;
 public class WavFile {
 
     public static void write(float[] floatData, String filename, int nchannels, int bitDepth, int sampleRate) throws IOException {
+        
         // Normalize float data
         float max = 0;
         for (float v : floatData) {
@@ -29,27 +30,27 @@ public class WavFile {
         try (FileOutputStream out = new FileOutputStream(filename)) {
             // Write RIFF header
             out.write("RIFF".getBytes());
-            writeLittleEndian(out, 36 + dataLength, 4);  // Chunk size
+            writeBytes(out, 36 + dataLength, 4);  // Chunk size
             out.write("WAVE".getBytes());
 
             // fmt subchunk
             out.write("fmt ".getBytes());
-            writeLittleEndian(out, 16, 4); // Subchunk1Size (16 for PCM)
-            writeLittleEndian(out, 1, 2);  // AudioFormat (1 = PCM)
-            writeLittleEndian(out, nchannels, 2);
-            writeLittleEndian(out, sampleRate, 4);
-            writeLittleEndian(out, byteRate, 4);
-            writeLittleEndian(out, nchannels * bytesPerSample, 2); // BlockAlign
-            writeLittleEndian(out, bitDepth, 2); // BitsPerSample
+            writeBytes(out, 16, 4); // Subchunk1Size (16 for PCM)
+            writeBytes(out, 1, 2);  // AudioFormat (1 = PCM)
+            writeBytes(out, nchannels, 2);
+            writeBytes(out, sampleRate, 4);
+            writeBytes(out, byteRate, 4);
+            writeBytes(out, nchannels * bytesPerSample, 2); // BlockAlign
+            writeBytes(out, bitDepth, 2); // BitsPerSample
 
             // data subchunk
             out.write("data".getBytes());
-            writeLittleEndian(out, dataLength, 4);
+            writeBytes(out, dataLength, 4);
 
             int maxAmplitude = (1 << (bitDepth - 1)) - 1;
             for (float sample : floatData) {
                 int intSample = (int)(sample * maxAmplitude);
-                writeLittleEndian(out, intSample, bytesPerSample);
+                writeBytes(out, intSample, bytesPerSample);
             }
         }
     }
@@ -94,10 +95,23 @@ public class WavFile {
     }
 
     // Helper method to write little-endian values
-    private static void writeLittleEndian(OutputStream out, int value, int bytes) throws IOException {
-        for (int i = 0; i < bytes; i++) {
-            out.write(value & 0xFF);
-            value >>= 8;
+    private static void writeBytes(OutputStream out, int value, int bytes, boolean littleEndian) throws IOException {        
+        if(littleEndian)
+        {
+            for (int i = 0; i < bytes; i++) {
+                out.write(value & 0xFF);
+                value >>= 8;
+            }
         }
+        else
+        {
+            for (int i = (bytes - 1); i >= 0; i++) {
+                out.write((value >> (8*i)) & 0xFF);                
+            }
+        }
+    }
+
+    private static void writeBytes(OutputStream out, int value, int bytes) throws IOException {
+        writeBytes(out, value, bytes, true);
     }
 }
