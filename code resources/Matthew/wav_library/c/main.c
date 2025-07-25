@@ -1,10 +1,8 @@
+// wav_library C example
 //
-//  main.c
-//  wav_library
+// Build and run in terminal with:
 //
-//  Created by admin on 25/07/25.
-//
-
+// gcc -o main main.c && ./main
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
