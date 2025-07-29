@@ -12,8 +12,9 @@ Use a popular live coding language to make beats directly in the browser.
 None
 
 ## Programming concepts and methods
- - gentle introduction presents a functional programming style
- - INSERT MORE TBC
+ - first steps in editing and running simple code examples
+ - gentle introduction to a functional programming style
+ - functions and arguments
 
 ## How this resource could be used
  - As a first introduction to any kind of programming
