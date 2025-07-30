@@ -10,23 +10,25 @@
 \section{Introduction}
 % What is this chapter? (very brief)
 
-This chapter is designed to serve as a brief tour of connections between music and programming. In particular, it is aimed at educators looking to explore music in their pedagogy.
+This chapter is designed to serve as a brief tour of connections between music and programming. In particular, it is aimed at educators who want to explore music in their pedagogy. The \href{}{accompanying resources} present a range of possible projects that can be adapted for classroom use or self-learning. 
 
-The following sections explore motivations for connecting music with programming (Section \ref{sec:why}), the rich existing work in this domain (Section \ref{sec:literature}), and present a set of accompanying example resources that can serve as starting points into different kinds of music/coding projects (Section \ref{sec:resources}).
+Making code that makes sound and music can be fun, even with only a very basic understanding of programming concepts. It can motivate students to explore and develop their own coding projects \cite{NEAT CITATION ON THIS POINT?}.
 
-Resources - useful to help students with something that is already concrete and understandable.
+The following sections explore motivations for connecting music with programming in more detail(Section \ref{sec:why}), the rich existing work in this domain (Section \ref{sec:literature}), and present a set of accompanying example resources that can serve as starting points into different kinds of music/coding projects (Section \ref{sec:resources}).
+
+% Resources - useful to help students with something that is already concrete and understandable.
 
 % Music and computers have a long history together. Musicians have been making sounds by programming computers since the early 1950s (CITATIONS), both to synthesise digital sounds and to explore new approaches to composition. 
 
 There are many ways in which sound and music may connect with programming. As an indication of the possible variety, here is a non-exhaustive list:
 
 \begin{itemize}
-    \item composing with code: using code to write pieces of music
-    \item performing with code: writing code in a performance to make music
-    \item creating instruments: building software instruments to subsequently perform with
-    \item understanding sound: coding to analyse and explore representations of sound and/or music
-    \item data sonification: representing existing data as sound or music, either in real-time or with  historical data
-    \item ...?
+    \item composing with code: using code to write pieces of music,
+    \item performing with code: writing code in a performance to make music,
+    \item creating instruments: building software tools for others to use for musical purposes,
+    \item understanding sound: coding to analyse and explore representations of sound and/or music,
+    \item data sonification: representing existing data as sound or music, either in real-time or with historical data.
+    \item ...?(YASH)
 \end{itemize}
 
 
@@ -66,11 +68,19 @@ Examples:
 
 Music and programming have been connected in a wide variety of ways, sometimes through the addition of libraries for integrating musical inputs and outputs with existing languages, and sometimes through the development of specifically designed languages or environments. As this is a very short chapter, it only scratches the surface of many of the interesting work done in this domain, with a particular emphasis on pedagogical elements.
 
+Most mainstream programming languages are able to work with sound and music as outputs. This could be achieved by writing to a file, e.g. an audio file [NOD TO RESOURCES], a MIDI file (a common musical data format that can be used to synthesise sound). The program could also transmit real-time messages to an audio engine that runs separately, e.g. a standalone synthesiser or sampler \footnote{Lots of open source synthesisers are available such as \href{https://surge-synthesizer.github.io/}{Surge XT} or \href{https://asb2m10.github.io/dexed/}{Dexed}}, a digital audio workstation, or frameworks such as SuperDirt. In many cases there are existing libraries to achieve this. This makes it relatively easy to adapt any simple programming exercise to a sonic/musical exercise, e.g. adding an element to array could be adding a note to a melody or conditional statements might be musical decisions.
+
+TOM QUESTION: COULD WE COMPILE A HANDY LIST OF EXAMPLE LIBRARIES FOR DIFFERENT LANGUAGES? I'M THINKING OF THINGS LIKE THIS IN PARTICULAR, WHERE IT MAY NOT BE OBVIOUS THAT THERE IS A WAY TO DO MUSICAL THINGS IN A GIVEN CONTEXT:
+\href{https://flujoo.github.io/gm/articles/gm.html}{https://flujoo.github.io/gm/articles/gm.html}
+
+
 Sonic Pi\footnote{\url{https://sonic-pi.net}} is a popular example of a specifically designed language: a simple but flexible environment that aims to support school-age students to learn to code by making music \cite{aaron_sonic_2016}. The focus on play and having fun with Sonic Pi can foster a more positive attitude towards programming \cite{petri_sonicpi_2022}, and can provide a starting point for moving from simple programming concepts to more involved topics such as concurrency \cite{traversaro_hearplay_2024}. Sound making programs can start off very simple with basic commands such as "play 60", but can be built into entire pieces or performances \cite{}. 
 
 Sonic Pi is rooted in practices of live coding for music, a substantial community that serves as an access point to programming for many musicians, as well as an access point for music for some programmers. There  movement that has engaged closely with programming pedagogy from different perspectives. Blackwell et al \cite{blackwell_livecoding_2022} provide a useful overview of the field. The proceedings of the International Conference on Live Coding\footnote{\url{https://iclc.toplap.org/}} provide a more broader repository of topics, many of which cover music in programming education. Live musical coding is also notable as a community that has attempted to push back against coding as a male dominated space \cite{blackwell_livecoding_2022}, with all-women and non-binary workshops being a regular occurrence. Armitage \cite{armitage_spaces_2018} points to the domain as being a ``a space in which to fail constructively''.
 
 The EarSketch\footnote{\url{https://earsketch.gatech.edu/}} \cite{engelman_earsketch_2017} and TunePad\footnote{\url{https://tunepad.com/}} projects are similar to Sonic Pi in their pedagogical aims, in that they seek to broaden participation in computing by demystifying coding and relating it to a domain of interest to students. The projects integrate coding into a digital audio workstation (DAW) framework that runs in a web browser, providing familiar workspaces for those with musical backgrounds. Both projects use Python (although EarSketch has a JavaScript option). They are designed specifically with sharing in mind: both code sharing and collaborative editing, further motivating students to engage with the coding \cite{freeman_earsketch_2019}. Petrie \cite{petrie_ct_2024} studied the potential for both projects to support computational thinking in 11-12 year old students who had no prior school experience of either programming or music making. Petrie notes how the kinds of musical tasks supported by these kinds of projects are naturally incremental and iterative, and that students benefit from that aspect.
+
+STRUDEL / TIDALCYCLES
 
 
 A key concern across all the above projects is that there should be room for musical variety and expression; although they may present simple entry points to engaging with programming, it is possible to create rich and interesting creative work that students will be proud of.
@@ -103,7 +113,7 @@ A wide variety of bespoke languages and tools have sprung up in relation to this
 
 
 
-\section{Overview of our online resources} \label{sec:resources}
+\section{Overview of our online resources [rename this]} \label{sec:resources}
 %What are they, who are they for, what kinds of programming concepts do they relate to?
 
 % Our working list of projects is here:
@@ -130,9 +140,9 @@ This resource is both similar and different to the piano example. Students engag
 \subsection{[Matthew]}
 This section focusses on educators directly and the ground work needed to make the most portable and technologically accessible lessons. No prior knowledge is assumed and as the resource is intended to guide the reader through the process of WAVE file creation. The ultimate goal being a simple library ripe for customisation and intimately understood for easy dissemination to students.
 
-All data can be a sound a sound and the WAVE file is the simplest means of data sonification and music creation. Most modern operating systems (and many older ones) will support WAVE file playback through a media player, browser or command line tool. Emphasis is on the use of standard libraries to improve portability and providing a means of quickly beginning music-based programming lessons without burdening students with language-specific ancillary concepts that can potentially be a demotivating obstacle to new programmers.
+All data can be a sound and the WAVE file is the simplest means of data sonification and music creation. Most modern operating systems (and many older ones) will support WAVE file playback through a media player, browser or command line tool. Emphasis is on the use of standard libraries to improve portability and providing a means of quickly beginning music-based programming lessons without burdening students with language-specific ancillary concepts that can potentially be a demotivating obstacle to new programmers.
 
-The central lesson is explained in python, but there is companion code in C, C++, Java and Rust to reinforces the basic elements need to solve the problem.
+The central lesson is explained in python, but there is companion code in C, C++, Java and Rust to reinforce the basic elements need to solve the problem.
 
 \subsection{[Mike]}
 % Short overview goes here
