@@ -55,19 +55,19 @@ def write_wav_file(audio,
 
 def read_wav_file(filename):
     with open(filename, 'rb') as wav_file:                
-        (chunk_id,)        = struct.unpack('4s', wav_file.read(4))
-        (chunk_size,)      = struct.unpack('<I', wav_file.read(4))
-        (format,)          = struct.unpack('4s', wav_file.read(4))
-        (subchunk1_id,)    = struct.unpack('4s', wav_file.read(4))
-        (subchunk1_size,)  = struct.unpack('<I', wav_file.read(4))
-        (audio_format,)    = struct.unpack('<H', wav_file.read(2))
-        (num_channels,)    = struct.unpack('<H', wav_file.read(2))
-        (sample_rate,)     = struct.unpack('<I', wav_file.read(4))
-        (byte_rate,)       = struct.unpack('<I', wav_file.read(4))
-        (block_align,)     = struct.unpack('<H', wav_file.read(2))
-        (bits_per_sample,) = struct.unpack('<H', wav_file.read(2))
-        (subchunk2_id,)    = struct.unpack('4s', wav_file.read(4))
-        (subchunk2_size,)  = struct.unpack('<I', wav_file.read(4))
+        chunk_id,        = struct.unpack('4s', wav_file.read(4))
+        chunk_size,      = struct.unpack('<I', wav_file.read(4))
+        format,          = struct.unpack('4s', wav_file.read(4))
+        subchunk1_id,    = struct.unpack('4s', wav_file.read(4))
+        subchunk1_size,  = struct.unpack('<I', wav_file.read(4))
+        audio_format,    = struct.unpack('<H', wav_file.read(2))
+        num_channels,    = struct.unpack('<H', wav_file.read(2))
+        sample_rate,     = struct.unpack('<I', wav_file.read(4))
+        byte_rate,       = struct.unpack('<I', wav_file.read(4))
+        block_align,     = struct.unpack('<H', wav_file.read(2))
+        bits_per_sample, = struct.unpack('<H', wav_file.read(2))
+        subchunk2_id,    = struct.unpack('4s', wav_file.read(4))
+        subchunk2_size,  = struct.unpack('<I', wav_file.read(4))
             
         number_of_frames = subchunk2_size // (bits_per_sample // 8)
 
