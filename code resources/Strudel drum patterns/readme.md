@@ -1,4 +1,9 @@
-# Creating a piano piece with python notebooks
+# Creating drum patterns with Strudel
+
+## Note
+This example runs in the browser, as demonstrated here:
+
+https://tommudd.co.uk/pairprogramming/strudel-drum-patterns
 
 ## Summary
 Use a popular live coding language to make beats directly in the browser.
@@ -7,8 +12,9 @@ Use a popular live coding language to make beats directly in the browser.
 None
 
 ## Programming concepts and methods
- - gentle introduction presents a functional programming style
- - INSERT MORE TBC
+ - first steps in editing and running simple code examples
+ - gentle introduction to a functional programming style
+ - functions and arguments
 
 ## How this resource could be used
  - As a first introduction to any kind of programming
@@ -16,7 +22,8 @@ None
  - As a fun way to start to make music, regardless of programming experience
 
 ## How could this be taken further
- - Students could explore some of the additional resources noted at the outset of the tutorial
+ - Students could explore some of the additional resources noted at the outset of the tutorial such as the wider [Strudel Getting Started guide](https://strudel.cc/workshop/getting-started), or artist introductions by [Lucy Cheeseman](https://www.youtube.com/watch?v=QRJ0xrjLj6A) or [Dan Gorelick and Viola He](https://www.youtube.com/watch?v=oqyAJ4WeKoU&t=559s)
+ - Students could think about coding as performance, perhaps engaging with the lively [live coding community](https://forum.toplap.org/) and associated [Algorave community](https://tidalcycles.org/docs/community/).
  - Students could start to learn [SuperCollider](https://supercollider.github.io/), a related language that allows for more in-depth explorations of real-time digital audio
 
 ## Technical Resources or Requirements
