@@ -1,0 +1,105 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+#rnbo-root {
+    height: auto;
+    width: 100vw;
+}
+#background {
+    position: absolute;
+    z-index: -1;
+}
+
+h2, em {
+    width: 100%;
+}
+
+#rnbo-root {
+    margin: auto;
+    max-width: 540px;
+}
+
+#rnbo-clickable-keyboard {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#rnbo-clickable-keyboard > div {
+    margin: 2px;
+    border: solid black 1px;
+    min-height: 50px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rnbo-clickable-keyboard > div.clicked {
+    background: #222222;
+    color: #dddddd;
+}
+
+#rnbo-parameter-sliders {
+    display: flex;
+    flex-direction: column;
+}
+
+#rnbo-parameter-sliders > div {
+    display: flex;
+}
+
+#rnbo-parameter-sliders > div > input:first-of-type {
+    flex-grow: 1;
+}
+
+#sequencer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px auto;
+  padding: 10px;
+  width: fit-content;
+}
+
+.step {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border: 2px solid #999;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.step:hover {
+  background-color: #bbb;
+}
+
+.step.active {
+  background-color: #4CAF50;
+  border-color: #2E7D32;
+}
+
+  /* Button styling */
+.start-button {
+    background-color: #595959; 
+    border: none; 
+    width: 80px; 
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+    cursor: pointer;
+}
+
+/* Play icon specific styling */
+.play-icon {
+    display: inline; /* Ensure visibility */
+}
+
+/* Pause icon specific styling */
+.pause-icon {
+    display: none; /* Hidden by default */
+}
