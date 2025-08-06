@@ -1,5 +1,9 @@
 # Programming Fundamentals with Music
 
+<!-- - [x] How this resource could be used -->
+<!-- - [x] How could this be taken further -->
+<!-- - [x] Technical Resources or Requirements -->
+
 ## Summary
 Getting materials together and dealing with the first few basic of concepts of programmming through music.
 
@@ -32,12 +36,4 @@ Some customisations to collaborate with students might be:
 
 If you are teaching a course on git version control, you might try having groups implement all of the above to feature branches.
 
-Finally, by collaborating on building a simple library you provide a great resource to pass on to students at the end of a course, which provides a canvas for them to explore making their own tools.
-
-## How this resource could be used
-
-
-## How could this be taken further
-
-
-## Technical Resources or Requirements
+Finally, by collaborating on building a simple library you provide a great resource to pass on to students at the end of a course, which provides a canvas for you and your students to explore making your own tools.
