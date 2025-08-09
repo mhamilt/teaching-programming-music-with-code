@@ -36,15 +36,26 @@ There are many ways in which sound and music may connect with programming. As an
 \section{WHY: why is music of any value in a programming and education context} \label{sec:why}
 
 % (from the pitch)
-Music and programming have a rich intertwined history. Simple-but-effective connections can be found between programming concepts (iteration, abstraction, conditionals, loops) and musical concepts (timbre, rhythm, timing, harmony, pattern). Writing a program that generates sound provides an immediate, engaging way to manifest abstract processes; in a pedagogical sense, the sound output is a form of feedback. Programs can often be short and simple but nevertheless very musically satisfying. 
+Music and programming have a rich intertwined history. Simple but effective connections can be found between programming concepts (iteration, abstraction, conditionals, loops) and musical concepts (rhythm, timing, harmony, pattern). Writing a program that generates sound provides an immediate, engaging way to manifest abstract processes. In a pedagogical sense, the sound output is a form of feedback. Programs don't have to be complicated or sophisticated in terms of the coding to be musically satisfying. Students can create sound and music that they can share with friends and relatives, who may not know the first thing about programming but can nonetheless engage with the creative outcomes. 
 
-Students can create things that they can share with friends and relatives, who may not know the first thing about programming but can nonetheless engage with the creative outcomes. 
+% Something about UK HE policy on integrating art and science?
 
-Programming concepts can be playfully explored in musical contexts. For example, an integer array can be rendered as a piano melody, a drum rhythm, or directly as a sound file. This gives an immediate meaning to the output data, motivating students to care about the specific values in the array, the length of the array, the range of data in the array, different ways of reading and writing values to and from the array and so on. This can be important for engaging students on introductory courses where there is often a lack of opportunity for creative explorations \cite{sharmin_creativity_2021}.
+Programming concepts can be playfully explored in musical contexts. For example, an integer array can be rendered as a piano melody, a drum rhythm, or directly as a sound file. This gives an immediate meaning to the output data, motivating students to care about the specific values in the array, the length of the array, the range of data in the array, different ways of reading and writing values to and from the array and so on. Operations on that array take on musical meanings: ordering an array provides a scale; reversing an array reverses musical material. This can be important for engaging students on introductory courses where there is often a lack of opportunity for creative exploration \cite{sharmin_creativity_2021}.
 
-There are obvious parallels here with visual coding. Environments like Processing (CITE), and Open Frameworks (CITE) have effectively connected programming with image and animation to motivate learning and exploration (CITE). As explored in the following section, there is a similarly rich history of music making in programming pedagogy.
+There are obvious parallels here with visual coding. Environments like Processing \cite{reas2006processing} and Open Frameworks (CITE) have effectively connected programming with image and animation to motivate learning and exploration (CITE). As explored in the following section, there is a similarly rich history of music making in programming pedagogy.
 
+To mix music, art and programming continues a long and fruitful tradition, and can serve as a reminder to students and educators that making code is fundamentally about creating things: a creative act.
 
+% QUESTION TO ALL:
+% Can you think of any ways to neatly visualise this kind of thing?
+% I've added something here, but let me know if you have something neater!
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/fig1_arrays_as_sound_and_music.pdf}
+    \caption{Two examples of arrays becoming sound and music. On the left, the array is translated into note values. On the right, the array is translated directly to an audio file.}
+    \label{fig:arrays-as-music}
+\end{figure}
 
 interesting parallels with music and code anyway: scores are instructions too.
 
@@ -140,9 +151,15 @@ This resource is both similar and different to the piano example. Students engag
 \subsection{[Matthew]}
 This section focusses on educators directly and the ground work needed to make the most portable and technologically accessible lessons. No prior knowledge is assumed and as the resource is intended to guide the reader through the process of WAVE file creation. The ultimate goal being a simple library ripe for customisation and intimately understood for easy dissemination to students.
 
-All data can be a sound and the WAVE file is the simplest means of data sonification and music creation. Most modern operating systems (and many older ones) will support WAVE file playback through a media player, browser or command line tool. Emphasis is on the use of standard libraries to improve portability and providing a means of quickly beginning music-based programming lessons without burdening students with language-specific ancillary concepts that can potentially be a demotivating obstacle to new programmers.
+All data can be a sound and the WAVE file is the simplest means of data sonification and music creation. Most modern operating systems (and many older ones) will support WAVE file playback through a media player, browser or command line tool. The resource emphasises the use of standard libraries to improve portability and providing a means of quickly beginning music-based programming lessons without burdening students with language-specific ancillary concepts that can potentially be a demotivating obstacle to new programmers.
 
-The central lesson is explained in python, but there is companion code in C, C++, Java and Rust to reinforce the basic elements need to solve the problem.
+The intention is not to be prescriptive, but rather show how malleable the WAVE format can be for teaching music and programming.
+
+% want to talk about twos compliment? great, talk about signed integers and bit-depth. Want to talk about additivie synthesis? lovley, stack sine waves and put them in a .wav. Want to talk about Redbook audio, CD formats and PCM?  I wanetd emphasise here just how customusable such a simple basic concept (in computer science terms) and is stil very relevant. Basically almost like the WAVE file isn't the important bit, but the philosophy behind the decisions for teaching it.
+
+The central lesson is explained in an IPython (Jupyter) notebook, but there is also companion code in C, C++, Java and Rust to reinforce the basic elements need to solve the problem.
+
+% list of places to go, adding functionality to the library or expanding on the base WAVE format to include other chunks such as cue and playlist chunks which could be used in conjunction with reaper https://www.mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/Docs/riffmci.pdf
 
 \subsection{[Mike]}
 % Short overview goes here
