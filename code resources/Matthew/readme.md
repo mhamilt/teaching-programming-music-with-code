@@ -26,13 +26,19 @@ Not only does the WAVE file allow for easy data sonification, but it helps to te
 
 The WAVE file library resources here are provided as example as to how much code will be necessary to sonifying data. For educators, it is suggested that you begin by abstracting away the library to a single line inclusion so as not to overload students with information. Over time it is recommended to introduce problems that require direct intervention in the library itself. The file format cases considered in the `wav_library/` files are the simplest, partly to fascilitate this need for intervention.
 
-Some customisations to collaborate with students might be:
+Suggestions for customising and expanding this lesson is split into 2 categories, library functaionality and audio editing.
 
-- Bit depth
-- Sample Rate
-- Multi-channel (interlaced) audio
-- Audio Editing
-- DSP algorithms
+##### Library Functionality
+
+- Bit depth: add functionality to configure the bit-depth of a file. This could also be implemented as part of a "bit-crushing" algorithm.
+- Sample Rate: add functionality to configure sample rate. As above, this could be to change bit depth, but can also be used a part of a basic time-stretching / pitch-shifting algorithm.
+- Multi-channel: the PCM in WAVE files is interlaced meaning the samples for each channel are grouped together (e.g. Channel 1, Sample 1; Channel 2, Sample 2; Channel 1, Sample 2; Channel 2, Sample 2). Increasing to stereo is achievable simply by taking two arrays and ``zipping'' them together. This can also present a fun challeneg for custom parsing of eigenmike files.
+- Metadata: The WAVE standard covered here is its most simplistic, but there is also the ability to add metadata relating to cue points and playlist values. This can be a good vehicle for talking about data structures or even object orientated programming. Cue points are typically used with digital audio workstations. If student groups are also exploring other systems like FMOD and WWise, the metadata can also be used for cue-ing and looping audio.
+
+##### Audio editing 
+
+- Audio Editing: Algorithms around audio editing can be designed, either silence removal or gating / limiting. It can also basis for algorithmic composition practices. 
+- DSP algorithms: Any signal processing algorithm can be protyped as part of this work flow, simply by reading audio, processing, and writing out 'wet' and 'dry' versions.
 
 If you are teaching a course on git version control, you might try having groups implement all of the above to feature branches.
 
