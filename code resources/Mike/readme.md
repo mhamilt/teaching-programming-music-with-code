@@ -1,4 +1,4 @@
-# [Title of this resources / set of resources]
+# Understanding major and minor chords using programming
 
 ## Summary
 [Single sentence summary]
