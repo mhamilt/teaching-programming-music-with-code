@@ -31,7 +31,7 @@ def write_wav_file(float_data, filename, nchannels=1, bit_depth=16, sample_rate=
         
         wave_file.writeframesraw(byte_data)
 
-def read_wav_file(filename):
+def read_wav_file(filename, return_params=False):
 
     if not filename.endswith('.wav'):
         filename += '.wav'
@@ -39,17 +39,32 @@ def read_wav_file(filename):
     with wave.open(filename, 'rb') as wave_file:
         p = wave_file.getparams()
         frames = wave_file.readframes(p.nframes)
-        max_amplitude = 2**15
-        audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]
+        
+    bit_depth = 8 * p.sampwidth
+    max_amplitude = 2**(bit_depth-1) - 1
+    audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]
+
+    # ??? print audio duration, in theory. Maybe an issue with the unpacking then?
+    print(p.nframes / p.framerate)
+    print(len(audio_samples) / p.framerate)
+
+    if return_params:
+        return audio_samples, p.framerate, bit_depth
+    else:
         return audio_samples
     
 if __name__ == "__main__":
-    fs       = 44100.0   # Sampling Rate 
-    f0       = 440.0     # Fundamental frequency
-    duration = 1.0       # in seconds
+    # fs       = 44100.0   # Sampling Rate 
+    # f0       = 440.0     # Fundamental frequency
+    # duration = 1.0       # in seconds
 
-    delta    = 2.0 * pi * f0 / fs # how much does the phase change between samples
-    sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
-    write_wav_file(sine_wave, "a440hz.wav")
-    read_wav = read_wav_file("a440hz.wav")
-    write_wav_file(read_wav, "a440hz_from_read.wav")
+    # delta    = 2.0 * pi * f0 / fs # how much does the phase change between samples
+    # sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
+    # write_wav_file(sine_wave, "a440hz.wav")
+    # read_wav = read_wav_file("a440hz.wav")
+    # write_wav_file(read_wav, "a440hz_from_read.wav")
+
+    read_wav, fs, bd = read_wav_file('../python-functions-fade/guitar.wav', return_params=True)
+    write_wav_file(read_wav, '../python-functions-fade/guitar_from_read.wav', sample_rate=fs, bit_depth=16)
+    # read_wav = read_wav_file('guitar_from_read.wav')
+
