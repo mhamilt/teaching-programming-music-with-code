@@ -1,4 +1,9 @@
-# Introduction
+---
+title: "Practical approaches to using sound and music in programming pedagogy"
+bibliography: references.bib
+---
+
+## Introduction
 
 This chapter is designed to serve as a brief tour of connections between
 sound, music, programming and pedagogy. In particular, it is aimed at
@@ -38,7 +43,7 @@ points into different kinds of music/coding projects are then introduced
 in Section [4](#sec:resources){reference-type="ref"
 reference="sec:resources"}.
 
-# Why combine programming with sound and music? {#sec:why}
+## Why combine programming with sound and music? {#sec:why}
 
 Music and programming have a rich intertwined history. Simple but
 effective connections can be found between programming concepts --- such
@@ -91,7 +96,7 @@ tradition [@reichardt1971; @Dreher2014; @wang17], and can serve as a
 reminder to both students and educators that coding is fundamentally
 about making things and is a creative act.
 
-# Overview of what exists already {#sec:literature}
+## Overview of what exists already {#sec:literature}
 
 Music and programming have been connected in a wide variety of ways,
 sometimes through the addition of libraries for integrating musical
@@ -174,7 +179,7 @@ for musical variety and expression; although they may present simple
 entry points to engaging with programming, it is possible to create rich
 and interesting creative work that students will be proud of.
 
-# Overview of our online resources \[rename this\] {#sec:resources}
+## Overview of our online resources \[rename this\] {#sec:resources}
 
 Perhaps a quick note towards the many many things that are important,
 but perhaps out of scope here.
@@ -186,7 +191,7 @@ resource comes with a readme that gives a sense of how the resource
 might be used, who might find it valuable, what prior knowledge the
 students may need, and what technologies will be needed.
 
-## Python piano piece
+### Python piano piece
 
 This resource is aimed at students who have started on Python quite
 recently. It attempts to make musical output as simple and accessible as
@@ -199,7 +204,7 @@ develop the code by themselves to try to explore how they can start to
 tailor the musical output towards something they find sonically
 interesting or satisfying.
 
-## Strudel drum patterns
+### Strudel drum patterns
 
 This resource is both similar and different to the piano example.
 Students engage with *Strudel*[^8], a browser-based JavaScript port of
@@ -214,9 +219,9 @@ programming for others [@CITATION]. Unlike the Python example above, it
 may not be so straightforward to map programming insights directly to
 other domains such as data science or INSERT ANOTHER DOMAIN HERE.
 
-## \[Charlotte\]
+### \[Charlotte\]
 
-## \[Matthew\]
+### \[Matthew\]
 
 This section focusses on educators directly and the ground work needed
 to make the most portable and technologically accessible lessons. No
@@ -241,9 +246,9 @@ The central lesson is explained in an IPython (Jupyter) notebook, but
 there is also companion code in C, C++, Java and Rust to reinforce the
 basic elements need to solve the problem.
 
-## \[Mike\]
+### \[Mike\]
 
-## \[Yash\]
+### \[Yash\]
 
 This demo serves as a template or a starting point to create web-based
 responsive musical instruments and/or controllers. The template combines
@@ -262,7 +267,7 @@ sound. Designed as both a learning resource and a creative springboard,
 the project can be adapted for musical instruments, live installations,
 audience-participation performances, or experimental audio-visual tools.
 
-# Mini summary
+## Mini summary
 
 This chapter has touched briefly on some of the many connections between
 sound, music and programming that exist, and how these can be and have
@@ -282,35 +287,31 @@ together:
 > could never make with a piano or a violin? What else could you create,
 > that nobody before you has ever made?
 
-# Resource List for educators
-
-:::: adjustwidth
--2cm-2cm
+## Resource List for educators
 
 ::: {#tab:placeholder}
-  --------------- ----------------------------------- ----------------------------------- ----------------- ----------------------------------------------------- ---------------- ----------------------
-  **Name**        **Type**                            **Context**                         **Open Source**   **Notes**                                             **Audience**     **URL**
-                                                                                                                                                                                   
-  EarSketch       Browser-based                       Beginner music making                                 Python or JavaScript                                                   earsketch.gatech.edu
-  gm (R)          R music library                     Data science                                          R                                                                      flujoo.github.io/gm
-  JythonMusic     Standalone app                      Beginner music making                                 Python                                                                 jythonmusic.me
-  Mido            Python MIDI library                 Beginner music making                                 Python                                                                 mido.readthedocs.io
-  Max             Standalone app, Visual coding       Music making                        X                                                                       musicians        
-  PureData        Standalone app, Visual coding                                                                                                                                    puredata.info
-  Scratch         Browser-based visual coding         Beginner music / game / animation                     Visual coding                                         young learners   scratch.mit.edu
-  Sonic Pi        Standalone app                                                                            Ruby                                                  young learners   sonic-pi.net
-  Strudel         Browser-based port of TidalCycles                                                                                                                                strudel.cc
-  SuperCollider                                                                                                                                                                    
-  Tau5            Browser-based or Standalone app                                                                                                                                  tau5.live
-  TidalCycles     live coding environment                                                                   Requires SuperCollider / SuperDirt for sound output                    tidalcycles.org
-  TunePad         Browser-based                                                                             Python                                                                 tunepad.com
-  Wav libraries   Libraries for various                                                                                                                                            
-  --------------- ----------------------------------- ----------------------------------- ----------------- ----------------------------------------------------- ---------------- ----------------------
+|  |  |  |  |  |  |  |
+|:---|:---|:---|:---|:---|:---|:---|
+| **Name** | **Type** | **Context** | **Open Source** | **Notes** | **Audience** | **URL** |
+|  |  |  |  |  |  |  |
+| EarSketch | Browser-based | Beginner music making |  | Python or JavaScript |  | earsketch.gatech.edu |
+| gm (R) | R music library | Data science |  | R |  | flujoo.github.io/gm |
+| JythonMusic | Standalone app | Beginner music making |  | Python |  | jythonmusic.me |
+| Mido | Python MIDI library | Beginner music making |  | Python |  | mido.readthedocs.io |
+| Max | Standalone app, Visual coding | Music making | X |  | musicians |  |
+| PureData | Standalone app, Visual coding |  |  |  |  | puredata.info |
+| Scratch | Browser-based visual coding | Beginner music / game / animation |  | Visual coding | young learners | scratch.mit.edu |
+| Sonic Pi | Standalone app |  |  | Ruby | young learners | sonic-pi.net |
+| Strudel | Browser-based port of TidalCycles |  |  |  |  | strudel.cc |
+| SuperCollider |  |  |  |  |  |  |
+| Tau5 | Browser-based or Standalone app |  |  |  |  | tau5.live |
+| TidalCycles | live coding environment |  |  | Requires SuperCollider / SuperDirt for sound output |  | tidalcycles.org |
+| TunePad | Browser-based |  |  | Python |  | tunepad.com |
+| Wav libraries | Libraries for various |  |  |  |  |  |
 
-  : An incomplete list of software and software libraries that can be
-  helpful in exploring music, sound and coding
+: An incomplete list of software and software libraries that can be
+helpful in exploring music, sound and coding
 :::
-::::
 
 [^1]: Lots of open source synthesisers are available such as [Surge
     XT](https://surge-synthesizer.github.io/) or
