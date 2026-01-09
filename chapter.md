@@ -336,3 +336,11 @@ helpful in exploring music, sound and coding
 
 [^10]: see the international Algorave movement for example:
     <https://algorave.com/>
+
+
+
+::: {.content-visible when-format="html" unless-format="epub"}
+
+## References {.unnumbered}
+
+:::
