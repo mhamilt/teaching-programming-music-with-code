@@ -1,19 +1,20 @@
 import { resumeAudio } from './app.js';
 
 // --- Sequencer Globals ---
-const cols = 8; // Steps
-const rows = 7; // Notes: C D E F G A B
-const whiteNotes = [71, 69, 67, 65, 64, 62, 60]; // MIDI notes reversed
+const cols = 8; // Number of steps (columns)
+const rows = 7; // Number of notes (rows): C D E F G A B
+const whiteNotes = [71, 69, 67, 65, 64, 62, 60]; // MIDI notes reversed (B A G F E D C)
 const windowWidth = window.innerWidth;
 
-let grid = [];
-let currentStep = 0;
-let cellSize = 40;
-let cellHeight = 20;
-let bpm = 120;
-let tempo = (60 / bpm) * 1000;
-let deviceRef = null;
+let grid = []; // 2D array for sequencer state
+let currentStep = 0; // Current step in the sequencer
+let cellSize = 40; // Width of each cell
+let cellHeight = 20; // Height of each cell
+let bpm = 120; // Beats per minute
+let tempo = (60 / bpm) * 1000; // Step duration in ms
+let deviceRef = null; // Reference to RNBO device
 
+// Initialize the sequencer UI and logic
 export function initSequencer(device) {
     deviceRef = device;
     cellSize = windowWidth / cols;
@@ -31,12 +32,14 @@ export function initSequencer(device) {
     startSequencer(ctx);
 }
 
+// Create the grid data structure (all cells off)
 function createGrid() {
     for (let i = 0; i < cols; i++) {
         grid[i] = Array(rows).fill(false);
     }
 }
 
+// Create and insert the canvas element
 function createCanvas() {
     const canvas = document.createElement("canvas");
     canvas.width = windowWidth;
@@ -48,6 +51,7 @@ function createCanvas() {
     return canvas;
 }
 
+// Create and insert the BPM control input
 function createBPMControl(beforeElement) {
     const bpmDiv = document.createElement("div");
     bpmDiv.style.margin = "20px 0";
@@ -65,6 +69,7 @@ function createBPMControl(beforeElement) {
     bpmInput.style.width = "60px";
     bpmInput.style.marginRight = "10px";
 
+    // Update BPM and tempo on Enter key
     bpmInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
             bpm = parseInt(bpmInput.value) || 120;
@@ -76,6 +81,7 @@ function createBPMControl(beforeElement) {
     document.body.insertBefore(bpmDiv, beforeElement);
 }
 
+// Create and insert the Start/Stop button
 function createStartStopButton(beforeElement) {
     const startButton = document.createElement("button");
     startButton.className = "start-button";
@@ -92,9 +98,11 @@ function createStartStopButton(beforeElement) {
     startButton.append(playIcon, pauseIcon);
     document.body.insertBefore(startButton, beforeElement);
 
+    // Resume audio context on click
     startButton.addEventListener("click", resumeAudio);
 }
 
+// Handle canvas clicks to toggle grid cells
 function setupCanvasClick(canvas, ctx) {
     canvas.addEventListener("click", (e) => {
         const rect = canvas.getBoundingClientRect();
@@ -108,6 +116,7 @@ function setupCanvasClick(canvas, ctx) {
     });
 }
 
+// Draw the sequencer grid and highlight active/current steps
 function drawGrid(ctx) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     for (let i = 0; i < cols; i++) {
@@ -124,12 +133,14 @@ function drawGrid(ctx) {
     }
 }
 
+// Start the sequencer loop
 function startSequencer(ctx) {
     let running = true;
     
     function step() {
         if (!running) return;
 
+        // Trigger notes for the current step
         for (let j = 0; j < rows; j++) {
             if (grid[currentStep][j]) {
                 triggerRNBONote(whiteNotes[j], 100);
@@ -144,6 +155,7 @@ function startSequencer(ctx) {
     step();
 }
 
+// Send MIDI note on/off events to RNBO device
 function triggerRNBONote(note, duration = 250) {
     if (!deviceRef) return;
 
