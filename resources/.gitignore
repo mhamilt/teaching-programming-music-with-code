@@ -2,3 +2,7 @@
 .idea/
 # temporary files
 *~
+
+# Include specific wav files
+!python-functions-fade/guitar.wav
+!python-functions-fade/piano.wav
