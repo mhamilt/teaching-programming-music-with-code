@@ -46,7 +46,7 @@ def write_wav_file(audio,
         wav_file.write(struct.pack('4s', sub_chunk_2_id))
         wav_file.write(struct.pack('<I', sub_chunk_2_size))
 
-        max_val = 2**15
+        max_amplitude = 2**15
         for sample in sine_wave:
             pcm_sample = int(sample * max_val)
             pcm_sample = max(-max_val, min((max_val-1), pcm_sample))  # Clamp to valid range
@@ -73,6 +73,6 @@ def read_wav_file(filename):
 
         max_amplitude = 2**15
         pcm = struct.unpack(f'<{subchunk2_size//2}h', wav_file.read())
-        audio = [sample / max_value for sample in pcm]
+        audio = [sample / max_amplitude for sample in pcm]
 
     return audio
