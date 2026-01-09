@@ -41,3 +41,12 @@ def read_wav_file(filename):
         frames = wave_file.readframes(p.nframes)
         audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]
         return audio_samples
+    
+if __name__ == "__main__":
+    fs       = 44100.0   # Sampling Rate 
+    f0       = 440.0     # Fundamental frequency
+    duration = 1.0       # in seconds
+
+    delta    = 2.0 * pi * f0 / fs # how much does the phase change between samples
+    sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
+    write_wav_file(sine_wave, "a440hz.wav")
