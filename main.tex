@@ -6,24 +6,48 @@
 \usepackage[hidelinks]{hyperref} 
 \usepackage{tikz}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
-
+\renewcommand{\arraystretch}{1.2}
+%-------------------------------------------------------------------------------------------
+% Box Drawing Characters for tree
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pmboxdraw}
 %-------------------------------------------------------------------------------------------
 % Bibliography Config
-\usepackage[sorting=none]{biblatex} %Imports biblatex package
+\usepackage[    
+    style=numeric-comp, % author year except    
+    backend=biber
+]{biblatex} % https://www.overleaf.com/learn/latex/Biblatex_citation_styles
 \addbibresource{main.bib} %Import the bibliography file
-%-------------------------------------------------------------------------------------------
-\title{Practical approaches to using sound and music in programming pedagogy \twonotes{}}
-% Alternatives (feel free to add ideas):
-%%% Practical approaches to using sound and music in programming pedagogy
-%%% Engaging students with coding by making sound and music
-%%% (I'm not 100% about the \twonotes{}...)
-\author{}
+
+
+\title{Practical approaches to using sound and music in programming pedagogy}
+
+\author{
+  Mudd, Tom\\
+  \texttt{tom.mudd@ed.ac.uk}
+  \and
+  Chalil, Yashique\\
+  \texttt{ychalil@ed.ac.uk}
+  \and
+  Desvages, Charlotte\\
+  \texttt{Charlotte.Desvages@ed.ac.uk}
+  \and
+  Hamilton, Matthew\\
+  \texttt{matthew.hamilton2@unibo.it}
+  \and
+  Taverne, Mike\\
+  \texttt{mike.taverne@northumbria.ac.uk}
+}
+
 \date{}
 
 \begin{document}
 
 \maketitle
 
+\section*{Keywords}
+Music, Sound, Motivation
 
 \include{chapter}
 
