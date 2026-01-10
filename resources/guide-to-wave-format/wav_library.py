@@ -38,33 +38,29 @@ def read_wav_file(filename, return_params=False):
                 
     with wave.open(filename, 'rb') as wave_file:
         p = wave_file.getparams()
+        
+        assert p.sampwidth == 2, f"{filename} file is not a 16-bit"
+        
         frames = wave_file.readframes(p.nframes)
         
-    bit_depth = 8 * p.sampwidth
+    bit_depth = 8 * p.sampwidth    
     max_amplitude = 2**(bit_depth-1) - 1
     audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]
 
-    # ??? print audio duration, in theory. Maybe an issue with the unpacking then?
-    print(p.nframes / p.framerate)
-    print(len(audio_samples) / p.framerate)
-
     if return_params:
-        return audio_samples, p.framerate, bit_depth
+        return audio_samples if p.nchannels == 1 else [audio_samples[channel::p.nchannels] for channel in range(p.nchannels)], p.framerate, bit_depth
     else:
-        return audio_samples
+        return audio_samples if p.nchannels == 1 else [audio_samples[channel::p.nchannels] for channel in range(p.nchannels)]
     
 if __name__ == "__main__":
-    # fs       = 44100.0   # Sampling Rate 
-    # f0       = 440.0     # Fundamental frequency
-    # duration = 1.0       # in seconds
+    fs       = 44100.0   # Sampling Rate 
+    f0       = 440.0     # Fundamental frequency
+    duration = 1.0       # in seconds
 
-    # delta    = 2.0 * pi * f0 / fs # how much does the phase change between samples
-    # sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
-    # write_wav_file(sine_wave, "a440hz.wav")
-    # read_wav = read_wav_file("a440hz.wav")
-    # write_wav_file(read_wav, "a440hz_from_read.wav")
-
-    read_wav, fs, bd = read_wav_file('../python-functions-fade/guitar.wav', return_params=True)
-    write_wav_file(read_wav, '../python-functions-fade/guitar_from_read.wav', sample_rate=fs, bit_depth=16)
-    # read_wav = read_wav_file('guitar_from_read.wav')
-
+    delta    = 2.0 * pi * f0 / fs # how much does the phase change between samples
+    sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
+    write_wav_file(sine_wave, "a440hz.wav")
+    read_wav = read_wav_file("a440hz.wav")
+    write_wav_file(read_wav, "a440hz_from_read.wav")
+    read_wav = read_wav_file('../python-functions-fade/guitar.wav')
+    

@@ -38,9 +38,14 @@ def read_wav_file(filename):
         
     with wave.open(filename, 'rb') as wave_file:
         p = wave_file.getparams()
+        
+        assert p.sampwidth == 2, f"{filename} file is not a 16-bit"
+        
         frames = wave_file.readframes(p.nframes)
-        audio_samples = [sample[0] for sample in struct.iter_unpack('<h',frames)]
-        return audio_samples
+        max_amplitude = 2**((p.sampwidth * 8) - 1) - 1
+
+        audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]    
+        return audio_samples if p.nchannels == 1 else [audio_samples[channel::p.nchannels] for channel in range(p.nchannels)]
     
 if __name__ == "__main__":
     fs       = 44100.0   # Sampling Rate 
@@ -50,3 +55,8 @@ if __name__ == "__main__":
     delta    = 2.0 * pi * f0 / fs # how much does the phase change between samples
     sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
     write_wav_file(sine_wave, "a440hz.wav")
+    
+    # Read then write out the stereo piano is file as separate channels
+    read_wav = read_wav_file("piano.wav")        
+    write_wav_file(read_wav[0], "guitar_left.wav")
+    write_wav_file(read_wav[1], "guitar_right.wav")

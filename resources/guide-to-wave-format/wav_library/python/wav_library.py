@@ -38,6 +38,8 @@ def read_wav_file(filename):
         
     with wave.open(filename, 'rb') as wave_file:
         p = wave_file.getparams()
+        assert p.sampwidth == 2, f"{filename} file is not a 16-bit"
         frames = wave_file.readframes(p.nframes)
+        max_amplitude = 2**((p.sampwidth * 8) - 1) - 1
         audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]
         return audio_samples
