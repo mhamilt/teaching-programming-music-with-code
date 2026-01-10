@@ -31,15 +31,34 @@ def write_wav_file(float_data, filename, nchannels=1, bit_depth=16, sample_rate=
         
         wave_file.writeframesraw(byte_data)
 
-def read_wav_file(filename):
+def read_wav_file(filename, return_params=False):
 
     if not filename.endswith('.wav'):
         filename += '.wav'
-        
+                
     with wave.open(filename, 'rb') as wave_file:
         p = wave_file.getparams()
+        
         assert p.sampwidth == 2, f"{filename} file is not a 16-bit"
+        
         frames = wave_file.readframes(p.nframes)
-        max_amplitude = 2**((p.sampwidth * 8) - 1) - 1
-        audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]
-        return audio_samples
+        
+    bit_depth = 8 * p.sampwidth    
+    max_amplitude = 2**(bit_depth-1) - 1
+    audio_samples = [sample[0] / max_amplitude for sample in struct.iter_unpack('<h',frames)]
+
+    if return_params:
+        return audio_samples if p.nchannels == 1 else [audio_samples[channel::p.nchannels] for channel in range(p.nchannels)], p.framerate, bit_depth
+    else:
+        return audio_samples if p.nchannels == 1 else [audio_samples[channel::p.nchannels] for channel in range(p.nchannels)]
+    
+if __name__ == "__main__":
+    fs       = 44100.0   # Sampling Rate 
+    f0       = 440.0     # Fundamental frequency
+    duration = 1.0       # in seconds
+
+    delta    = 2.0 * pi * f0 / fs # how much does the phase change between samples
+    sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
+    write_wav_file(sine_wave, "a440hz.wav")
+    read_wav = read_wav_file("a440hz.wav")
+    write_wav_file(read_wav, "a440hz_from_read.wav")    
