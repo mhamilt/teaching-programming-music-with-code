@@ -1,27 +1,17 @@
-# Programming Music with Code
-Chapter "Programming and motivation: Making Music with Code" for Teaching Programming across Disciplines Book.
-https://pairprogramming.ed.ac.uk/book/
+# Practical approaches to using sound and music in programming pedagogy
+This repository contains supplemetary material for chapter 17 of the Teaching Programming Across Disciplines book. Sound and music can be rich creative areas to explore through code, and can motivate engagement for students starting out with coding.
 
-# Welcome
+The resources provided here are designed to be starting points for educators looking to engage with music and sound in programming pedagogy, and to a lesser extent, for music educators looking to engage students with programming.
 
-Welcolme to the Overleaf project for this book chapter. 
+The chapter itself is open access and can be read here: [Final Link TBC](https://)
 
-This chapter is tied to GitHub repository https://github.com/mhamilt/teaching-programming-music-with-code
 
-Authors: Please get in touch with your github usernames if you have them and I can add you to the repostory.
+# Resources overview
 
-For the initial 'pitch', please edit `pitch.tex`.
+Five resources are provided here:
 
-The central chapter text lives in `chapter.tex`, this in aid of taking out latex setup out of the eyeline.
-
-Please add any pertinent references to the `main.bib` file.
-
-Any questions about Overlead / LaTeX please get in touch with Matthew to organise a call.
-
-# Important Dates
-
-## ~~April 1 2025: Pitch Submission Deadline~~
-## August 1 2025: Coding resources completed (at least at draft stage)
-## August 15 2025: Chapter draft completed
-## August 22 2025: Final revisions to chapter draft
-## August 29 2025: Final revisions to coding resources
+ - [Creating a piano piece with Python](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/python-piano)
+ - [Creating drum patterns in the browser with Strudel](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/strudel-drum-patterns)
+ - [An Educator's Guide to WAVE Format Files](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/guide-to-wave-format)
+ - [Introducing functions by playing with audio files](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/python-functions-fade)
+ - [Gestural instruments in the browser](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/gestural-instruments)
