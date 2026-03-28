@@ -1,4 +1,7 @@
 # Practical approaches to using sound and music in programming pedagogy
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19287720.svg)](https://doi.org/10.5281/zenodo.19287720)
+
 This repository contains supplemetary material for chapter 17 of the Teaching Programming Across Disciplines book. Sound and music can be rich creative areas to explore through code, and can motivate engagement for students starting out with coding.
 
 The resources provided here are designed to be starting points for educators looking to engage with music and sound in programming pedagogy, and to a lesser extent, for music educators looking to engage students with programming.
