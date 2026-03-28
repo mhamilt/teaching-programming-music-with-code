@@ -1,4 +1,4 @@
-# Interactive Web Apps with RNBO
+# Gestural Instruments In The Browser
 
 ## Summary
 This project is a template/demo for building interactive audio web apps using RNBO (by [Cycling '74](https://rnbo.cycling74.com/)), browser-based technologies, and smartphone motion sensors. It includes a custom RNBO synth MAX MSP patch, a minimal website UI, a p5.js sequencer, and real-time sensor mapping.
