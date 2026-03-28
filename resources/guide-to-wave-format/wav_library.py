@@ -61,6 +61,4 @@ if __name__ == "__main__":
     sine_wave = [sin(delta * i) for i in range(int(duration*fs))]
     write_wav_file(sine_wave, "a440hz.wav")
     read_wav = read_wav_file("a440hz.wav")
-    write_wav_file(read_wav, "a440hz_from_read.wav")
-    read_wav = read_wav_file('../python-functions-fade/guitar.wav')
-    
+    write_wav_file(read_wav, "a440hz_from_read.wav")    
