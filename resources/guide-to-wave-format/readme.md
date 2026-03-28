@@ -1,7 +1,15 @@
-# Programming Fundamentals with Music
+# An Educator's Guide to WAVE Format Files
 
-## Summary
 This resource introduces basic programming concepts using music as a vehicle. Students will learn by creating and manipulating audio data, which provides an engaging and tangible way to explore programming.
+
+- [An Educator's Guide to WAVE Format Files](#an-educators-guide-to-wave-format-files)
+  - [Prerequisite Knowledge](#prerequisite-knowledge)
+  - [Programming Concepts and Methods](#programming-concepts-and-methods)
+    - [Writing a WAVE File](#writing-a-wave-file)
+    - [Suggestions for Customizing and Expanding](#suggestions-for-customizing-and-expanding)
+      - [Library Functionality](#library-functionality)
+      - [Audio Editing](#audio-editing)
+  - [Teaching Note](#teaching-note)
 
 ## Prerequisite Knowledge
 No prior knowledge is required. If you are teaching this resource to students, it is recommended to familiarize yourself by following along. While the examples are in Python, the concepts are language-agnostic.  
