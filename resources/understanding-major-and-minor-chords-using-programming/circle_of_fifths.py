@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 '''
 https://piano-music-theory.com/2016/05/31/major-scales/
@@ -7,19 +8,35 @@ https://en.wikipedia.org/wiki/Major_and_minor
 https://en.wikipedia.org/wiki/Circle_of_fifths
 '''
 
+'''
+The 12 notes (cf piano keyboard, white and black keys) in the "chromatic scale":
+B#,C,
+    C#,Db
+D,
+    D#,Eb
+E,Fb
+F,E#
+    F#,Gb
+G,
+    G#,Ab
+A,
+    A#,Bb
+B,Cb
+'''
 note_name = ['B#,C',
-'C#,Db',
-'D',
-'D#,Eb',
-'E,Fb',
-'F,E#',
-'F#,Gb',
-'G',
-'G#,Ab',
-'A',
-'A#,Bb',
-'B,Cb']
+            'C#,Db',
+            'D',
+            'D#,Eb',
+            'E,Fb',
+            'F,E#',
+            'F#,Gb',
+            'G',
+            'G#,Ab',
+            'A',
+            'A#,Bb',
+            'B,Cb']
 
+# default values for arguments in functions below
 PREFER_SHARP=True
 PREFER_NATURAL=True
 ALL_NAMES=False
@@ -27,6 +44,32 @@ ALL_NAMES=False
 # print(len(note_name))
 
 def getNoteName(idx_in, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL, all_names=ALL_NAMES):
+    """
+    Return the note letter (i.e. C, C#, Bb, etc) corresponding to idx_in%12 (i.e. idx_in=12 is equivalent to 0, idx_in=13 to 1, etc).
+    The value of idx_in%12 is matched to the note letters as follows:
+    0 -> B#, C
+    1 -> C#, Db
+    2 -> D
+    3 -> D#, Eb
+    4 -> E, Fb
+    5 -> F, E#
+    6 -> F#, Gb
+    7 -> G
+    8 -> G#, Ab
+    9 -> A
+    10 -> A#, Bb
+    11 -> B, Cb
+
+    Args:
+        idx_in (int): numeric index of the note
+        prefer_sharp (bool, optional): Prefer sharp note letters (ex: C# instead of Db). Defaults to True.
+        prefer_natural (bool, optional): Prefer natural note letters (ex: F instead of E#).. Defaults to True.
+        all_names (bool, optional): Show all note letters (i.e. "F#, Gb" instead of just "F#" or "Gb"). Defaults to False.
+
+    Returns:
+        str: Note letter (or letters if all_names=True)
+    """
+
     idx = idx_in%12
     if idx==0:
         if all_names:
@@ -110,15 +153,41 @@ def getNoteName(idx_in, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL
     raise
 
 def getNoteNames(idx_list, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL, all_names=ALL_NAMES):
+    """
+    Similar to **getNoteName**, but works for a list of numeric index values.
+
+    Args:
+        idx_list (int): _description_
+        prefer_sharp (bool, optional): Prefer sharp note letters (ex: C# instead of Db). Defaults to True.
+        prefer_natural (bool, optional): Prefer natural note letters (ex: F instead of E#).. Defaults to True.
+        all_names (bool, optional): Show all note letters (i.e. "F#, Gb" instead of just "F#" or "Gb"). Defaults to False.
+
+    Returns:
+        list: list of note letters
+    """    
     return [getNoteName(idx, prefer_sharp=prefer_sharp, prefer_natural=prefer_natural, all_names=all_names) for idx in idx_list]
 
 def printCircleOfFifths():
-    for i in range(13):
+    """
+    Prints out the note letters on the circle of fifths in clockwise order.
+    First, it prints the note letters on the major circle of fifths, starting from C.
+    Second, it prints the note letters on the minor circle of fifths, starting from a.
+    """ 
+    print('Outer circle')   
+    for i in range(12):
         # print(i, 7*i, 7*i/12, (7*i)%12)
         note_idx = (7*i)%12
-        print(i, note_idx, note_name[note_idx])
+        print(f'i: {i}, note_idx: (7*{i})%12={note_idx}, note_name[{note_idx}]: {note_name[note_idx]}')
+    print('Inner circle')
+    for i in range(12):
+        # print(i, 7*i, 7*i/12, (7*i)%12)
+        note_idx = (9+7*i)%12
+        print(f'i: {i}, note_idx: (7*{i})%12={note_idx}, note_name[{note_idx}]: {note_name[note_idx].lower()}')
 
 def printMajorScales():
+    """
+    Print the 12 major scales corresponding to the 12 semitones in the chromatic scale.
+    """
     seq = [0,2,4,5,7,9,11,12]
     for idx in range(12):
         idx_list = [idx+i for i in seq]
@@ -138,6 +207,18 @@ def printMajorScales():
         print(idx, ':', name, ':', ' - '.join(getNoteNames(idx_list, prefer_sharp=prefer_sharp, prefer_natural=prefer_natural, all_names=all_names)))
 
 def printMajorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL, all_names=ALL_NAMES):
+    """
+    For a given tonic index
+
+    Args:
+        idx_tonic (int): index of the tonic (first note in scale)
+        prefer_sharp (bool, optional): Prefer sharp note letters (ex: C# instead of Db). Defaults to True.
+        prefer_natural (bool, optional): Prefer natural note letters (ex: F instead of E#).. Defaults to True.
+        all_names (bool, optional): Show all note letters (i.e. "F#, Gb" instead of just "F#" or "Gb"). Defaults to False.
+
+    Returns:
+        _type_: _description_
+    """    
     seq = [0, 2, 4, 5, 7, 9, 11, 12]
     idx_list = [idx_tonic + i for i in seq]
     # tonic = getNoteName(idx_tonic, prefer_sharp=prefer_sharp, prefer_natural=prefer_natural, all_names=all_names)
@@ -166,8 +247,18 @@ def printMajorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_
     else:
         return (sout, True)
 
-
 def printMinorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL, all_names=ALL_NAMES):
+    """_summary_
+
+    Args:
+        idx_tonic (_type_): _description_
+        prefer_sharp (bool, optional): Prefer sharp note letters (ex: C# instead of Db). Defaults to True.
+        prefer_natural (bool, optional): Prefer natural note letters (ex: F instead of E#).. Defaults to True.
+        all_names (bool, optional): Show all note letters (i.e. "F#, Gb" instead of just "F#" or "Gb"). Defaults to False.
+
+    Returns:
+        _type_: _description_
+    """
     seq = [0, 2, 3, 5, 7, 8, 10, 12]
     idx_list = [idx_tonic + i for i in seq]
     # tonic = getNoteName(idx_tonic, prefer_sharp=prefer_sharp, prefer_natural=prefer_natural, all_names=all_names)
@@ -199,6 +290,18 @@ def printMinorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_
         return (sout, True)
 
 def getScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL, all_names=ALL_NAMES, minor=False):
+    """_summary_
+
+    Args:
+        idx_tonic (_type_): _description_
+        prefer_sharp (bool, optional): Prefer sharp note letters (ex: C# instead of Db). Defaults to True.
+        prefer_natural (bool, optional): Prefer natural note letters (ex: F instead of E#).. Defaults to True.
+        all_names (bool, optional): Show all note letters (i.e. "F#, Gb" instead of just "F#" or "Gb"). Defaults to False.
+        minor (bool, optional): _description_. Defaults to False.
+
+    Returns:
+        _type_: _description_
+    """    
     if minor:
         scale_type = 'Minor'
         seq = [0, 2, 3, 5, 7, 8, 10, 12]
@@ -242,13 +345,19 @@ def getScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL
     return (sout, valid, sharp_count, flat_count)
 
 def printCMajorScale():
+    """_summary_
+    """    
     print(' - '.join(getNoteNames(range(12))))
 
 def printStandardScale():
+    """_summary_
+    """    
     for i in range(13):
         print(i, getNoteName(i, all_names=True))
 
 def CountMajorScales():
+    """_summary_
+    """    
     Nscales = 0
     for i in range(12):
         print(f'===> i={i}')
@@ -264,6 +373,8 @@ def CountMajorScales():
     print(f'Nscales = {Nscales}')
 
 def CountMinorScales():
+    """_summary_
+    """    
     Nscales = 0
     for i in range(12):
         print(f'===> i={i}')
@@ -279,6 +390,11 @@ def CountMinorScales():
     print(f'Nscales = {Nscales}')
 
 def CountScales(minor=False):
+    """_summary_
+
+    Args:
+        minor (bool, optional): _description_. Defaults to False.
+    """    
     start_scale = ''
     scale_dict_sharp = dict()
     scale_dict_flat = dict()
@@ -325,5 +441,14 @@ def CountScales(minor=False):
 # CountMajorScales()
 # CountMinorScales()
 # printStandardScale()
-CountScales(minor=False)
-CountScales(minor=True)
+# printCircleOfFifths()
+# print('==================== Counting major scales start')
+# CountScales(minor=False)
+# print('==================== Counting major scales end')
+# print('==================== Counting minor scales start')
+# CountScales(minor=True)
+# print('==================== Counting minor scales end')
+
+# printMajorScales()
+for i in range(12):
+    print(printMajorScale(i))
