@@ -208,7 +208,19 @@ def printMajorScales():
 
 def printMajorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL, all_names=ALL_NAMES):
     """
-    For a given tonic index
+    For a given tonic index (first note in a scale), it works out the scale based on the following sequence (major scale):
+    idx_tonic + [0, 2, 4, 5, 7, 9, 11, 12] and returns the following infos:
+
+    1. An info string containing the following:
+        1. tonic index
+        2. Name of the scale (based on the tonic)
+        3. List of the notes in the scale
+        4. The number of sharps (#) and flats (♭) in the scale.
+        5. The number of unique letters in the scale.
+    2. True if the scale contains all note letters. Else False.
+
+    Example output:
+        ('2 : D Major Scale : D - E - F# - G - A - B - C# - D : count(#/♭) = 2/0 : Nletters=7', True)
 
     Args:
         idx_tonic (int): index of the tonic (first note in scale)
@@ -217,7 +229,7 @@ def printMajorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_
         all_names (bool, optional): Show all note letters (i.e. "F#, Gb" instead of just "F#" or "Gb"). Defaults to False.
 
     Returns:
-        _type_: _description_
+        (str, bool): str: Info string as described above. bool: True if the scale contains all note letters. Else False.
     """    
     seq = [0, 2, 4, 5, 7, 9, 11, 12]
     idx_list = [idx_tonic + i for i in seq]
@@ -248,16 +260,29 @@ def printMajorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_
         return (sout, True)
 
 def printMinorScale(idx_tonic, prefer_sharp=PREFER_SHARP, prefer_natural=PREFER_NATURAL, all_names=ALL_NAMES):
-    """_summary_
+    """
+    For a given tonic index (first note in a scale), it works out the scale based on the following sequence (major scale):
+    idx_tonic + [0, 2, 3, 5, 7, 8, 10, 12] and returns the following infos:
+
+    1. An info string containing the following:
+        1. tonic index
+        2. Name of the scale (based on the tonic)
+        3. List of the notes in the scale
+        4. The number of sharps (#) and flats (♭) in the scale.
+        5. The number of unique letters in the scale.
+    2. True if the scale contains all note letters. Else False.
+
+    Example output:
+        ('6 : f Sharp Minor Scale : f# - g# - a - b - c# - d - e - f# : count(#/♭) = 3/0 : Nletters=7', True)
 
     Args:
-        idx_tonic (_type_): _description_
+        idx_tonic (int): index of the tonic (first note in scale)
         prefer_sharp (bool, optional): Prefer sharp note letters (ex: C# instead of Db). Defaults to True.
         prefer_natural (bool, optional): Prefer natural note letters (ex: F instead of E#).. Defaults to True.
         all_names (bool, optional): Show all note letters (i.e. "F#, Gb" instead of just "F#" or "Gb"). Defaults to False.
 
     Returns:
-        _type_: _description_
+        (str, bool): str: Info string as described above. bool: True if the scale contains all note letters. Else False.
     """
     seq = [0, 2, 3, 5, 7, 8, 10, 12]
     idx_list = [idx_tonic + i for i in seq]
@@ -442,13 +467,13 @@ def CountScales(minor=False):
 # CountMinorScales()
 # printStandardScale()
 # printCircleOfFifths()
-# print('==================== Counting major scales start')
-# CountScales(minor=False)
-# print('==================== Counting major scales end')
-# print('==================== Counting minor scales start')
-# CountScales(minor=True)
-# print('==================== Counting minor scales end')
+print('==================== Counting major scales start')
+CountScales(minor=False)
+print('==================== Counting major scales end')
+print('==================== Counting minor scales start')
+CountScales(minor=True)
+print('==================== Counting minor scales end')
 
 # printMajorScales()
 for i in range(12):
-    print(printMajorScale(i))
+    print(printMinorScale(i))
