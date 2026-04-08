@@ -45,6 +45,7 @@ It can also be used in music teaching to explain how notes relate to frequencies
 ## How could this be taken further
 
 Motivated students/learners could create a complete digital piano keyboard or synthesizer. Or play preset tunes from a digital memory.
+Such circuits could then potentially be implemented in real hardware later on.
 
 Examples:
 * [My CPU With Improved Sound and MIDI Musical Keyboard Via Logisim](https://www.youtube.com/watch?v=_VW074myq44)
