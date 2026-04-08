@@ -79,6 +79,7 @@ Notes:
 * 440 Hz is the frequency of the note A4.
 
 ### buzzer_example_2
+![buzzer_example_2.png](screenshots/buzzer_example_2.png?raw=true)
 Same as *buzzer_example*, but here the frequency can be set by using a slider to add an offset to the 440 Hz frequency of the A4 note.
 
 It uses a bit extender and an adder to generate the required frequency input in a more convenient way.
@@ -92,6 +93,7 @@ How to use:
 6) Try different waveform types in the buzzer properties or different frequencies and duty cycles.
 
 ### scale_example
+![scale_example.png](screenshots/scale_example.png?raw=true)
 A circuit playing the C major scale using a counter and a multiplexer.
 
 1) Select hand tool.
@@ -119,3 +121,7 @@ References:
 ](https://en.wikipedia.org/wiki/Piano_key_frequencies)
 * [Scientific pitch notation
 ](https://en.wikipedia.org/wiki/Scientific_pitch_notation)
+
+### countupdown
+![countupdown.png](screenshots/countupdown.png?raw=true)
+A sub-circuit used in *scale_example* to count up from 0 to 7 and back down from 7 to 0.
