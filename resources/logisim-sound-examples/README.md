@@ -24,6 +24,7 @@ This project makes use of the following:
     * Outputs
     * Counters
     * D Flip-Flop
+    * Bit extender
     * Adders
     * Bits and hexadecimal representation
 
