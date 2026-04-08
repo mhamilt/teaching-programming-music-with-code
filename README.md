@@ -11,10 +11,11 @@ The chapter itself is open access and can be read here: [Final Link TBC](https:/
 
 # Resources overview
 
-Five resources are provided here:
+Six resources are provided here:
 
  - [Creating a piano piece with Python](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/python-piano)
  - [Creating drum patterns in the browser with Strudel](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/strudel-drum-patterns)
  - [An Educator's Guide to WAVE Format Files](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/guide-to-wave-format)
  - [Introducing functions by playing with audio files](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/python-functions-fade)
  - [Gestural instruments in the browser](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/gestural-instruments)
+ - [Building a digital circuit to play sounds and notes using Logisim Evolution](https://github.com/mhamilt/teaching-programming-music-with-code/tree/main/resources/logisim-sound-examples)
