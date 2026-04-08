@@ -475,5 +475,5 @@ CountScales(minor=True)
 print('==================== Counting minor scales end')
 
 # printMajorScales()
-for i in range(12):
-    print(printMinorScale(i))
+# for i in range(12):
+#     print(printMinorScale(i))
