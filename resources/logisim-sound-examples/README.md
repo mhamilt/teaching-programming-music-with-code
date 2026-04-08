@@ -64,7 +64,7 @@ Built on: OpenJDK 64-Bit Server VM v21.0.4
 
 ## How to use each example circuit
 ### buzzer_example
-![buzzer_example.png](images/buzzer_example.png?raw=true)
+![buzzer_example.png](screenshots/buzzer_example.png?raw=true)
 A minimal example showing how to use the buzzer.
 
 1) Select hand tool.
