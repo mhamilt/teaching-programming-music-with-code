@@ -26,7 +26,7 @@ This project makes use of the following:
     * D Flip-Flop
     * Bit extenders
     * Adders
-    * Bits and hexadecimal representation
+    * Binary and hexadecimal representation
 
 * Logisim Evolution features:
     * Buzzers
