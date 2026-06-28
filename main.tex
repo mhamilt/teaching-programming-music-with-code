@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{wasysym}
+\usepackage{tabularx}  % table formatting
+\usepackage{changepage}
+\usepackage[hidelinks]{hyperref} 
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+%-------------------------------------------------------------------------------------------
+% Bibliography Config
+\usepackage[sorting=none]{biblatex} %Imports biblatex package
+\addbibresource{main.bib} %Import the bibliography file
+%-------------------------------------------------------------------------------------------
+\title{Practical approaches to using sound and music in programming pedagogy \twonotes{}}
+% Alternatives (feel free to add ideas):
+%%% Practical approaches to using sound and music in programming pedagogy
+%%% Engaging students with coding by making sound and music
+%%% (I'm not 100% about the \twonotes{}...)
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+\include{chapter}
+
+%%%%% older bibtex code:
+% \bibliographystyle{plain}
+% \bibliography{main}
+
+%%%%% newer biblatex code:
+\printbibliography %Prints bibliography
+
+\end{document}
