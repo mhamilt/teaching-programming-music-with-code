@@ -6,7 +6,7 @@ This repository contains supplemetary material for chapter 17 of the Teaching Pr
 
 The resources provided here are designed to be starting points for educators looking to engage with music and sound in programming pedagogy, and to a lesser extent, for music educators looking to engage students with programming.
 
-The chapter itself is open access and can be read here: [Final Link TBC](https://)
+The chapter itself is open access and can be read here: https://teaching-programming.github.io/book/C17_coding-with-music.html
 
 
 # Resources overview
